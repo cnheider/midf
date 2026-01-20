@@ -1,7 +1,6 @@
 import json
-from typing import Any, List, Optional
-
 import shapely
+from typing import Any, List, Optional
 
 from .base import IMDFFeature, IMDFFeatureReference
 from ..enums import IMDFFeatureType, IMDFRelationshipCategory

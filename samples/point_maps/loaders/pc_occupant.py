@@ -1,11 +1,11 @@
-import logging
-import uuid
 from pathlib import Path
-from typing import Any, Mapping
 
 import geopandas
+import logging
 import requests
 import shapely
+import uuid
+from typing import Any, Mapping
 
 from midf.constants import (
     PATCH_DATA,

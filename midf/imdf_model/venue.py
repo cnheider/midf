@@ -1,7 +1,6 @@
 import json
-from typing import Any, Optional, Union
-
 import shapely
+from typing import Any, Optional, Union
 
 from .base import IMDFFeature
 

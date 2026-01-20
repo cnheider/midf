@@ -1,10 +1,9 @@
 import json
 import logging
-import uuid
-from typing import List, Mapping
-
 import shapely
+import uuid
 from pandas import DataFrame
+from typing import List, Mapping
 
 from midf.enums import IMDFFeatureType
 from midf.imdf_model import IMDFFixture

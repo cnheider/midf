@@ -1,12 +1,11 @@
 import logging
-
 import shapely
 
 from jord.shapely_utilities import clean_shape
 from midf.mi_utilities import clean_admin_id
-from sync_module.python_utilities import clean_admin_id_regex
 from midf.model import MIDFLevel, MIDFSection
 from sync_module.model import LocationType, Solution
+from sync_module.python_utilities import clean_admin_id_regex
 from sync_module.shared import LanguageBundle
 
 _logger = logging.getLogger(__name__)

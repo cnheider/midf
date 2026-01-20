@@ -1,9 +1,9 @@
+from pathlib import Path
+
 import json
 import logging
-from pathlib import Path
-from typing import Optional
-
 from pydantic import BaseModel
+from typing import Optional
 
 _logger = logging.getLogger(__name__)
 IGNORE_THIS = """

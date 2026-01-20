@@ -1,6 +1,5 @@
-from abc import ABC, abstractmethod
-
 import shapely
+from abc import ABC, abstractmethod
 
 from midf.imdf_model import (
     IMDFAddress,

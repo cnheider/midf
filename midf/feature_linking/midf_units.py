@@ -1,4 +1,5 @@
 from collections import defaultdict
+
 from typing import Any, Collection, Dict, List, Mapping
 
 from midf.enums import IMDFFeatureType

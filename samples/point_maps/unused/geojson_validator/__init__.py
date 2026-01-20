@@ -1,5 +1,6 @@
-import logging
 from pathlib import Path
+
+import logging
 
 from .main import fix_geometries, validate_geometries, validate_structure
 

@@ -1,6 +1,5 @@
-from typing import Optional
-
 import shapely
+from typing import Optional
 
 __all__ = ["convert_display_point"]
 

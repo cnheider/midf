@@ -1,6 +1,5 @@
-from typing import Collection, Optional
-
 from dataclasses import dataclass
+from typing import Collection, Optional
 
 from midf.midf_typing import Labels, MIDFFeature, Polygonal
 from .address import MIDFAddress

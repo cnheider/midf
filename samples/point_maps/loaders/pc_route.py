@@ -1,5 +1,6 @@
-import logging
 from pathlib import Path
+
+import logging
 
 from .load_route import parse_route
 

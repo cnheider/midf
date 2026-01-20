@@ -1,5 +1,4 @@
 import logging
-
 import shapely
 
 from jord.shapely_utilities import clean_shape

@@ -1,5 +1,6 @@
-import logging
 from pathlib import Path
+
+import logging
 
 from midf.conversion import to_mi_solution
 from midf.linking import link_imdf

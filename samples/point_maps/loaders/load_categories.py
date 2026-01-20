@@ -1,9 +1,9 @@
+from pathlib import Path
+
 import json
 import logging
-from pathlib import Path
-from typing import List, Optional
-
 from pydantic import BaseModel
+from typing import List, Optional
 
 _logger = logging.getLogger(__name__)
 

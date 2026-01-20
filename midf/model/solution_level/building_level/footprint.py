@@ -1,6 +1,5 @@
-from typing import Collection
-
 from dataclasses import dataclass
+from typing import Collection
 
 from midf.enums import IMDFFootprintCategory
 from midf.midf_typing import Labels, MIDFFeature, Polygonal

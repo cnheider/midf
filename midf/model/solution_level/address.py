@@ -1,6 +1,5 @@
-from typing import List, Optional
-
 from dataclasses import dataclass
+from typing import List, Optional
 
 from midf.midf_typing import MIDFFeature
 from .address_level import MIDFVenue

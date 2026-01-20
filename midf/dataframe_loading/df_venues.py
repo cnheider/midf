@@ -1,8 +1,7 @@
 import json
-from typing import List, Mapping
-
 import shapely
 from pandas import DataFrame
+from typing import List, Mapping
 
 from midf.enums import IMDFFeatureType
 from midf.imdf_model import IMDFVenue

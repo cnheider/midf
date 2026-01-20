@@ -1,6 +1,6 @@
-import logging
 from collections import defaultdict
 
+import logging
 import shapely
 
 from jord.shapely_utilities import dilate

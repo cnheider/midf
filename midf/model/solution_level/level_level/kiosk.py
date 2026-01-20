@@ -1,7 +1,6 @@
-from typing import Optional
-
 import shapely
 from dataclasses import dataclass
+from typing import Optional
 
 from midf.midf_typing import Labels, MIDFFeature, Polygonal
 from .unit_level import MIDFAnchor

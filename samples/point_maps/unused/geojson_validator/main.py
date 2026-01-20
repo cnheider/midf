@@ -1,5 +1,6 @@
-import logging
 from pathlib import Path
+
+import logging
 from typing import Any, Dict, List, Tuple, Union
 
 from .fixes_utils import process_fix

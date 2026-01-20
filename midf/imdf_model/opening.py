@@ -1,8 +1,7 @@
 import json
-from typing import Any, Mapping, Optional, Union
-
 import shapely
 from dataclasses import dataclass
+from typing import Any, Mapping, Optional, Union
 
 try:
     from enum import StrEnum

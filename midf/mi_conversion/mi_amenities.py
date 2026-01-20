@@ -1,5 +1,6 @@
+import logging
+
 from midf.mi_utilities import clean_admin_id
-from sync_module.python_utilities import clean_admin_id_regex
 from midf.model import MIDFAmenity, MIDFSolution
 from sync_module.model import (
     LocationType,
@@ -7,9 +8,7 @@ from sync_module.model import (
     Room,
     Solution,
 )
-
-import logging
-
+from sync_module.python_utilities import clean_admin_id_regex
 from sync_module.shared import LanguageBundle
 
 __all__ = ["convert_amenities"]

@@ -1,6 +1,5 @@
-import logging
-
 import geopandas
+import logging
 import requests
 
 from sync_module.mi import synchronize

@@ -1,7 +1,6 @@
-from typing import Any, List, Optional
-
 import shapely
 from dataclasses import dataclass
+from typing import Any, List, Optional
 
 from midf.enums import (
     IMDFAccessControlCategory,
