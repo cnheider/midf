@@ -10,7 +10,7 @@ from midf.enums import IMDFFeatureType, IMDFVenueCategory
 from midf.imdf_model import IMDFAddress, IMDFVenue
 from .geojson_utilities import convert_display_point
 
-logger = logging.getLogger(__name__)
+_logger = logging.getLogger(__name__)
 
 __all__ = ["load_venue"]
 
@@ -22,12 +22,12 @@ class MissingAtLeastOneVenue(Exception):
 def load_venue(file_path: Path, intermediate_rep) -> None:
     """Load venue features"""
 
-    logger.info(f"Loading venue FeatureCollection: {file_path}")
+    _logger.info(f"Loading venue FeatureCollection: {file_path}")
 
     try:
         jgf = geopandas.read_file(file_path, engine="fiona")
     except Exception as e:
-        logger.error(f"Failed to load {file_path}: {e}")
+        _logger.error(f"Failed to load {file_path}: {e}")
         raise MissingAtLeastOneVenue(f"Could not load {file_path}, error: {e}")
 
     if len(jgf) == 0:

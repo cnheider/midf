@@ -9,7 +9,7 @@ from midf.model import MIDFFixture, MIDFLevel
 from sync_module.model import LocationType, Solution
 from sync_module.shared import LanguageBundle
 
-logger = logging.getLogger(__name__)
+_logger = logging.getLogger(__name__)
 
 __all__ = ["convert_fixtures"]
 
@@ -60,6 +60,6 @@ def convert_fixtures(floor_key: str, level: MIDFLevel, mi_solution: Solution) ->
                             location_type_key=location_type_key,
                         )
                 else:
-                    logger.error(f"Ignoring {fixture}")
+                    _logger.error(f"Ignoring {fixture}")
             else:
-                logger.error(f"Ignoring {fixture}")
+                _logger.error(f"Ignoring {fixture}")

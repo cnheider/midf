@@ -8,7 +8,7 @@ from midf.model import MIDFGeofence, MIDFSolution
 from sync_module.model import Building, LocationType, Solution
 from sync_module.shared import LanguageBundle
 
-logger = logging.getLogger(__name__)
+_logger = logging.getLogger(__name__)
 
 __all__ = ["convert_geofences"]
 
@@ -68,7 +68,7 @@ def convert_geofences(
                     break
 
             if floor_key is None:  # TODO: FIX, bad assumption
-                logger.error(f"Floor not found for {geofence}")
+                _logger.error(f"Floor not found for {geofence}")
                 floor_key = next(iter(mi_solution.floors)).key
 
             gid = geofence.id  # + found_venue_key

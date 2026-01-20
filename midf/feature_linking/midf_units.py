@@ -10,7 +10,7 @@ __all__ = ["link_units"]
 
 import logging
 
-logger = logging.getLogger(__name__)
+_logger = logging.getLogger(__name__)
 
 
 def link_units(
@@ -18,7 +18,7 @@ def link_units(
     imdf_dict: Mapping[IMDFFeatureType, Collection[IMDFFeature]],
 ) -> Dict[str, List[MIDFUnit]]:
     units = defaultdict(list)
-    logger.error(f"Linking units {len(imdf_dict[IMDFFeatureType.unit])}")
+    _logger.error(f"Linking units {len(imdf_dict[IMDFFeatureType.unit])}")
 
     anchors_copy = anchors.copy()
 

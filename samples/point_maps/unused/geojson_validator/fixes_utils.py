@@ -6,7 +6,7 @@ import shapely.geometry
 
 from . import fixes
 
-logger = logging.getLogger(__name__)
+_logger = logging.getLogger(__name__)
 
 
 def apply_fix(criterium: str, shapely_geom):
@@ -29,7 +29,7 @@ def process_fix(fc, geometry_validation_results: dict, criteria: List[str]) -> d
             if isinstance(idx, int):
                 geometry = fc_copy["features"][idx]["geometry"]
                 if geometry["type"] != "Polygon":
-                    logger.info("Currently only fixing polygons, skipping")
+                    _logger.info("Currently only fixing polygons, skipping")
                     continue
                 geom = shapely.geometry.shape(geometry)
                 geom_fixed = apply_fix(criterium, geom)

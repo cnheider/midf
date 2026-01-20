@@ -9,7 +9,7 @@ from midf.model import MIDFRelationship, MIDFSolution, MIDFUnit
 from sync_module.model import Area, Connector, Room, Solution
 from sync_module.shared import MIConnectionType
 
-logger = logging.getLogger(__name__)
+_logger = logging.getLogger(__name__)
 
 __all__ = ["convert_relationships"]
 
@@ -42,26 +42,28 @@ def convert_relationships(
                 continue
                 connection_type = MIConnectionType.wheel_chair_lift
             else:
-                logger.warning(f"Unknown relationship category {category_}")
+                _logger.warning(f"Unknown relationship category {category_}")
 
             if (
                 relationship.direction == IMDFDirection.directed
             ):  # TODO: Directed relationships are not supported,
                 # so we skip them for now.
-                logger.error(f"Directed relationships are not supported {relationship}")
+                _logger.error(
+                    f"Directed relationships are not supported {relationship}"
+                )
                 ...
 
             origin_room = mi_solution.rooms.get(
                 key=Room.compute_key(admin_id=clean_admin_id(relationship.origin.id))
             )
             if not origin_room:
-                logger.error(f"Origin room not found for relationship {relationship}")
+                _logger.error(f"Origin room not found for relationship {relationship}")
                 if mi_solution.areas.get(
                     key=Area.compute_key(
                         admin_id=clean_admin_id(relationship.origin.id)
                     )
                 ):
-                    logger.error(f"Origin area found for relationship {relationship}")
+                    _logger.error(f"Origin area found for relationship {relationship}")
                 continue
 
             connectors = [
@@ -75,7 +77,7 @@ def convert_relationships(
             if relationship.intermediary:
                 for unit in relationship.intermediary:
                     if not isinstance(unit, MIDFUnit):
-                        logger.error(f"Intermediary is not a unit {unit}")
+                        _logger.error(f"Intermediary is not a unit {unit}")
                         continue
 
                     in_room = mi_solution.rooms.get(
@@ -83,13 +85,13 @@ def convert_relationships(
                     )
 
                     if not in_room:
-                        logger.error(
+                        _logger.error(
                             f"Intermediary room not found for relationship {relationship}"
                         )
                         if mi_solution.areas.get(
                             key=Area.compute_key(admin_id=clean_admin_id(unit.id))
                         ):
-                            logger.error(
+                            _logger.error(
                                 f"Intermediary area found for relationship {relationship}"
                             )
                         continue
@@ -108,7 +110,7 @@ def convert_relationships(
                 )
             )
             if not destination_room:
-                logger.error(
+                _logger.error(
                     f"Destination room not found for relationship {relationship}"
                 )
                 if mi_solution.areas.get(
@@ -116,7 +118,7 @@ def convert_relationships(
                         admin_id=clean_admin_id(relationship.destination.id)
                     )
                 ):
-                    logger.error(
+                    _logger.error(
                         f"Destination area found for relationship {relationship}"
                     )
                 continue

@@ -3,7 +3,7 @@ import logging
 import shapely.geometry
 from shapely.validation import explain_validity
 
-logger = logging.getLogger(__name__)
+_logger = logging.getLogger(__name__)
 
 
 def check_holes(geom: shapely.geometry.Polygon) -> bool:

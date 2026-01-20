@@ -7,7 +7,7 @@ from midf.model import MIDFAddress, MIDFVenue
 
 __all__ = ["link_addresses"]
 
-logger = logging.getLogger(__name__)
+_logger = logging.getLogger(__name__)
 
 
 def link_addresses(
@@ -15,7 +15,7 @@ def link_addresses(
     venue_mapping: dict[str, List[MIDFVenue]],
 ) -> Dict[str, MIDFAddress]:
     addresses = {}
-    logger.error(f"Linking addresses: {len(imdf_dict[IMDFFeatureType.address])}")
+    _logger.error(f"Linking addresses: {len(imdf_dict[IMDFFeatureType.address])}")
 
     found_venue_addresses = venue_mapping.keys()
 
@@ -42,7 +42,7 @@ def link_addresses(
         )
 
     if len(addresses) == 0:
-        logger.error("No addresses were found in the data")
+        _logger.error("No addresses were found in the data")
         if True:  # TODO: DISABLE WHEN DONE TESTING
             for address_id, v in venue_mapping_copy.items():
                 dummy_address = MIDFAddress(

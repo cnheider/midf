@@ -11,8 +11,8 @@ from sync_module.model import OccupantCategory, OccupantTemplate
 from sync_module.shared import MIMediaType
 
 logging.basicConfig(level=logging.INFO)
-logger = logging.getLogger(__name__)
-logger.setLevel(logging.INFO)
+_logger = logging.getLogger(__name__)
+_logger.setLevel(logging.INFO)
 
 
 def upload_to_mi():
@@ -33,7 +33,7 @@ def upload_to_mi():
             ):
                 continue
 
-        logger.error(f"Processing {pc_venue_dir}")
+        _logger.error(f"Processing {pc_venue_dir}")
 
         try:
             imdf_dict = load_imdf(pc_venue_dir / "imdf.zip")
@@ -69,7 +69,7 @@ def upload_to_mi():
                                 occupant_template_admin_id
                             )
                         if occupant_template is None:
-                            logger.error(f"No template found for {occupant_id}")
+                            _logger.error(f"No template found for {occupant_id}")
                             continue
                         assert occupant_template is not None, (
                             f"{occupant_template_admin_id} not found in "
@@ -113,7 +113,7 @@ def upload_to_mi():
                 with open(data_base / "go.json", "w") as f:
                     f.write(to_json(mi_solution))
         except Exception as e:
-            logger.error(f"Failed to process {pc_venue_dir}: {e}")
+            _logger.error(f"Failed to process {pc_venue_dir}: {e}")
             if True:
                 raise e
 

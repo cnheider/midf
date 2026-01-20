@@ -9,7 +9,7 @@ from pandas import DataFrame
 from midf.enums import IMDFFeatureType
 from midf.imdf_model import IMDFSection
 
-logger = logging.getLogger(__name__)
+_logger = logging.getLogger(__name__)
 
 __all__ = ["load_imdf_sections"]
 
@@ -19,7 +19,7 @@ def load_imdf_sections(
     out: Mapping[IMDFFeatureType, List[IMDFSection]],
 ) -> None:
     if IMDFFeatureType.section.value in dataframes:
-        logger.error(f"Loading {IMDFFeatureType.section} features")
+        _logger.error(f"Loading {IMDFFeatureType.section} features")
 
         for ith_row, section_row in dataframes[
             IMDFFeatureType.section.value
@@ -42,7 +42,7 @@ def load_imdf_sections(
                     ...
                     # section_id = str(section_id)
                 else:
-                    logger.error(
+                    _logger.error(
                         f"section_id is None, generating a new one"
                         # f"{section_row}"
                     )

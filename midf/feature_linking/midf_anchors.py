@@ -10,7 +10,7 @@ __all__ = ["link_anchors"]
 
 import logging
 
-logger = logging.getLogger(__name__)
+_logger = logging.getLogger(__name__)
 
 
 def link_anchors(
@@ -28,7 +28,7 @@ def link_anchors(
     anchors = defaultdict(list)
     occupants_copy = occupants.copy()
 
-    logger.error(f"Linking anchors {len(imdf_dict[IMDFFeatureType.anchor])}")
+    _logger.error(f"Linking anchors {len(imdf_dict[IMDFFeatureType.anchor])}")
     for anchor in imdf_dict[IMDFFeatureType.anchor]:
         anchor: IMDFAnchor
 
@@ -37,7 +37,7 @@ def link_anchors(
             if anchor.id in occupants_copy:
                 occupants_linked = occupants_copy.pop(anchor.id)
             else:
-                logger.error(
+                _logger.error(
                     f"{anchor.id} not in {found_occupant_anchors}, THIS SHOULD NOT HAPPEN!"
                 )
 

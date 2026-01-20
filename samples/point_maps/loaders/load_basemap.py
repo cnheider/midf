@@ -12,7 +12,7 @@ from sync_module.model import Solution
 # file_path = (    Path(__file__).parent / "data" / "auxiliary_data" / "SIT" / "basemap.geojson")
 file_path = Path(__file__).parent / "data" / "VitraCampus" / "basemap.geojson"
 
-logger = logging.getLogger(__name__)
+_logger = logging.getLogger(__name__)
 logging.basicConfig(level=logging.DEBUG)
 
 df = geopandas.read_file(file_path, engine="fiona")
@@ -49,7 +49,7 @@ for ith, row in df.iterrows():
                 f"{bid}_{jth}", category, polygon=clean_shape(g_), floor_key=floor_key
             )
     else:
-        logger.error(f"Unexpected geometry type: {type(g)}")
+        _logger.error(f"Unexpected geometry type: {type(g)}")
         # raise ValueError(f'Unexpected geometry type: {type(g)}')
 
     # qlive.add_shapely_geometry(g)

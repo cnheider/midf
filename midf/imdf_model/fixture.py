@@ -11,7 +11,7 @@ __all__ = ["IMDFFixture"]
 from ..enums import IMDFFeatureType, IMDFFixtureCategory
 from ..midf_typing import Polygonal
 
-logger = logging.getLogger(__name__)
+_logger = logging.getLogger(__name__)
 
 
 class IMDFFixture(IMDFFeature):
@@ -43,6 +43,6 @@ class IMDFFixture(IMDFFeature):
                 if not display_point.is_empty:
                     out["display_point"] = json.loads(shapely.to_geojson(display_point))
                 else:
-                    logger.error(f"{display_point} was empty, remains None in out")
+                    _logger.error(f"{display_point} was empty, remains None in out")
 
         return out

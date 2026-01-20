@@ -25,7 +25,7 @@ from model.enums import PointConsultingFeatureStem
 from warg import ensure_existence
 
 logging.basicConfig(level=logging.INFO)
-logger = logging.getLogger(__name__)
+_logger = logging.getLogger(__name__)
 
 logging.getLogger("fiona").setLevel(logging.INFO)
 
@@ -93,7 +93,7 @@ def imdifify_venue(pc_venue, z):
                 try:
                     load_route(a, osm_file)  # has size effects
                 except ValueError as e:
-                    logger.error(f"Failed to load route {a}: {e}")
+                    _logger.error(f"Failed to load route {a}: {e}")
 
             elif g == PointConsultingFeatureStem.category and False:
                 jgf = load_category(a)
@@ -120,7 +120,7 @@ def imdifify_venue(pc_venue, z):
                     raise NotImplementedError("This should never happen")
 
         else:
-            logger.info(f"{a} was skipped")
+            _logger.info(f"{a} was skipped")
 
     manifest = {
         "version": "0.0.1",
@@ -157,12 +157,12 @@ def to_imdf_venue():
             ):
                 continue
 
-        logger.info(f"Processing {pc_venue}")
+        _logger.info(f"Processing {pc_venue}")
 
         try:
             imdifify_venue(pc_venue, z)
         except Exception as e:
-            logger.error(f"{pc_venue}: {e}")
+            _logger.error(f"{pc_venue}: {e}")
             if True:
                 raise e
 

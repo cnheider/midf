@@ -10,7 +10,7 @@ import tqdm
 
 from warg import clean_string, ensure_existence
 
-logger = logging.getLogger(__name__)
+_logger = logging.getLogger(__name__)
 logging.basicConfig(level=logging.INFO)
 
 map_id_edit_urls = {
@@ -63,7 +63,7 @@ exclude_path = ensure_existence(download_destination)
 def download_files():
 
     for map_name, map_id in tqdm.tqdm(map_ids.items()):
-        logger.info(f"Downloading {map_name}")
+        _logger.info(f"Downloading {map_name}")
         h = a.format(map_id)
         req = requests.get(h)
         folder = ensure_existence(exclude_path / map_name.lower().replace(" ", "_"))
@@ -88,10 +88,10 @@ def download_files():
                     ) as f:
                         f.write(f_content)
                 except Exception as e:
-                    logger.error(f"Error writing {f_name} in {map_name}: {e}")
+                    _logger.error(f"Error writing {f_name} in {map_name}: {e}")
 
         except JSONDecodeError as e:
-            logger.error(e)
+            _logger.error(e)
             logging.error(f"Error downloading {map_name} : {map_id}")
 
 

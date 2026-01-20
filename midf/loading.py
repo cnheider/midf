@@ -28,7 +28,7 @@ from .dataframe_loading import (
     load_imdf_venues,
 )
 
-logger = logging.getLogger(__name__)
+_logger = logging.getLogger(__name__)
 
 __all__ = ["load_imdf", "MANIFEST_KEY"]
 
@@ -70,7 +70,7 @@ def load_imdf(
 
                             dataframes[feature_name] = df
                     except Exception as e:
-                        logger.error(f"Failed to load {file}: {e}")
+                        _logger.error(f"Failed to load {file}: {e}")
                         if False:
                             raise e
 
@@ -79,17 +79,17 @@ def load_imdf(
                     assert manifest is None
                     manifest_file_content = json.loads(f.read())
                     if isinstance(manifest_file_content, List):
-                        logger.error(f"{file} is a list, expected a dict")
+                        _logger.error(f"{file} is a list, expected a dict")
                         if len(manifest_file_content) == 1:
                             manifest_file_content = manifest_file_content[0]
-                            logger.error(
+                            _logger.error(
                                 f"Using first and only element: {manifest_file_content}"
                             )
                     manifest = IMDFManifest(**manifest_file_content)
-                    logger.error(f"Successfully loaded manifest from {file}")
+                    _logger.error(f"Successfully loaded manifest from {file}")
 
             else:
-                logger.error(f"{file} was skipped")
+                _logger.error(f"{file} was skipped")
 
     out = defaultdict(list)
     if manifest is not None:

@@ -3,7 +3,7 @@ from pathlib import Path
 
 from .load_route import parse_route
 
-logger = logging.getLogger(__name__)
+_logger = logging.getLogger(__name__)
 
 __all__ = ["load_route"]
 

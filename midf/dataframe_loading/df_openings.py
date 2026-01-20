@@ -12,7 +12,7 @@ __all__ = ["load_imdf_openings"]
 
 import logging
 
-logger = logging.getLogger(__name__)
+_logger = logging.getLogger(__name__)
 
 
 def load_imdf_openings(
@@ -20,7 +20,7 @@ def load_imdf_openings(
     out: Mapping[IMDFFeatureType, List[IMDFOpening]],
 ) -> None:
     if IMDFFeatureType.opening.value in dataframes:
-        logger.error(f"Loading {IMDFFeatureType.opening} features")
+        _logger.error(f"Loading {IMDFFeatureType.opening} features")
         for ith_row, opening_row in dataframes[
             IMDFFeatureType.opening.value
         ].iterrows():

@@ -3,7 +3,7 @@ import logging
 from pathlib import Path
 from typing import Any, Dict
 
-logger = logging.getLogger(__name__)
+_logger = logging.getLogger(__name__)
 
 __all__ = ["load_style"]
 

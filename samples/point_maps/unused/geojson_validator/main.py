@@ -11,7 +11,7 @@ from .geometry_validation import (
 )
 from .schema_validation import GeoJsonLint
 
-logger = logging.getLogger(__name__)
+_logger = logging.getLogger(__name__)
 
 
 def validate_structure(
@@ -25,7 +25,7 @@ def validate_structure(
     geojson_data = input_to_geojson(geojson_input)
 
     errors = GeoJsonLint(check_crs=check_crs).lint(geojson_data)
-    logger.info(f"Structure validation results: {errors}")
+    _logger.info(f"Structure validation results: {errors}")
 
     return errors
 
@@ -67,7 +67,7 @@ def validate_geometries(
     geometries = [feature["geometry"] for feature in fc["features"]]
     results = process_validation(geometries, criteria_invalid, criteria_problematic)
 
-    logger.info(f"Validation results: {results}")
+    _logger.info(f"Validation results: {results}")
     return results
 
 
@@ -106,6 +106,6 @@ def fix_geometries(
 
     fixed_fc = process_fix(fc, geometry_validation_results, criteria)
 
-    logger.info(f"Fixed geometries for criteria {criteria}")
+    _logger.info(f"Fixed geometries for criteria {criteria}")
 
     return fixed_fc

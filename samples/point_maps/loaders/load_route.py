@@ -12,7 +12,7 @@ from networkx import MultiDiGraph
 from jord.networkx_utilities import assertive_add_shapely_node, assertive_add_edge
 from warg import recursive_flatten
 
-logger = logging.getLogger(__name__)
+_logger = logging.getLogger(__name__)
 
 
 def save_graph(new_graph: MultiDiGraph, save_path: Path) -> None:
@@ -95,7 +95,7 @@ def parse_route(route_file_path: Path, target_file_path: Path) -> MultiDiGraph:
                         allow_duplicates=False,
                     )
                 else:
-                    logger.error(f"Loop detected {i, to_link}")
+                    _logger.error(f"Loop detected {i, to_link}")
         if True:
             save_graph(graph, target_file_path)
 

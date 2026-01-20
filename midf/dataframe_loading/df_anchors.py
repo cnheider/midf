@@ -9,7 +9,7 @@ __all__ = ["load_imdf_anchors"]
 
 import logging
 
-logger = logging.getLogger(__name__)
+_logger = logging.getLogger(__name__)
 
 
 def load_imdf_anchors(
@@ -17,7 +17,7 @@ def load_imdf_anchors(
     out: Mapping[IMDFFeatureType, List[IMDFAnchor]],
 ) -> None:
     if IMDFFeatureType.anchor.value in dataframes:
-        logger.error(f"Loading {IMDFFeatureType.anchor} features")
+        _logger.error(f"Loading {IMDFFeatureType.anchor} features")
         for ith_row, anchor_row in dataframes[IMDFFeatureType.anchor.value].iterrows():
             anchor_dict = anchor_row.to_dict()
 

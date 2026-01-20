@@ -8,7 +8,7 @@ from midf.enums import IMDFFeatureType, IMDFOpeningCategory
 from midf.imdf_model import IMDFOpening
 from .geojson_utilities import convert_display_point
 
-logger = logging.getLogger(__name__)
+_logger = logging.getLogger(__name__)
 
 __all__ = ["load_opening"]
 

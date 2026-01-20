@@ -12,7 +12,7 @@ from midf.model import MIDFUnit
 
 from midf.model.solution_level.amenity import MIDFAmenity
 
-logger = logging.getLogger(__name__)
+_logger = logging.getLogger(__name__)
 
 
 def link_amenities(
@@ -28,7 +28,7 @@ def link_amenities(
     amenities = defaultdict()
 
     unit_id_mapping = {unit.id: unit for a in units.values() for unit in a}
-    logger.error(
+    _logger.error(
         f"Linking amenities with {len(imdf_dict[IMDFFeatureType.amenity])} units"
     )
     for amenity in imdf_dict[IMDFFeatureType.amenity]:
@@ -41,7 +41,7 @@ def link_amenities(
                 if uid in unit_id_mapping:
                     mapped_units.append(unit_id_mapping[uid])
                 else:
-                    logger.warning(f"Unit {uid} not found for amenity {amenity.id}")
+                    _logger.warning(f"Unit {uid} not found for amenity {amenity.id}")
 
         amenities[amenity.id] = MIDFAmenity(
             id=amenity.id,

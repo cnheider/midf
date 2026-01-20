@@ -5,7 +5,7 @@ from typing import Optional
 
 from pydantic import BaseModel
 
-logger = logging.getLogger(__name__)
+_logger = logging.getLogger(__name__)
 IGNORE_THIS = """
     },
     "ede9cbd5-681d-42f5-b8b1-7d0a205c8ab2": {

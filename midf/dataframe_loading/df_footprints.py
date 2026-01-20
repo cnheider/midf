@@ -10,7 +10,7 @@ __all__ = ["load_imdf_footprints"]
 
 import logging
 
-logger = logging.getLogger(__name__)
+_logger = logging.getLogger(__name__)
 
 
 def load_imdf_footprints(
@@ -18,7 +18,7 @@ def load_imdf_footprints(
     out: Mapping[IMDFFeatureType, List[IMDFFootprint]],
 ) -> None:
     if IMDFFeatureType.footprint.value in dataframes:
-        logger.error(f"Loading {IMDFFeatureType.footprint} features")
+        _logger.error(f"Loading {IMDFFeatureType.footprint} features")
         for ith_row, footprint_row in dataframes[
             IMDFFeatureType.footprint.value
         ].iterrows():

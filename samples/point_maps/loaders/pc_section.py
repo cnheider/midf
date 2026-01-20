@@ -9,19 +9,19 @@ from midf.enums import IMDFFeatureType
 from midf.imdf_model import IMDFSection
 from .geojson_utilities import convert_display_point
 
-logger = logging.getLogger(__name__)
+_logger = logging.getLogger(__name__)
 
 __all__ = ["load_section"]
 
 
 def load_section(file_path: Path, intermediate_rep) -> None:
     """Load section features"""
-    logger.info(f"Loading section FeatureCollection from {file_path}")
+    _logger.info(f"Loading section FeatureCollection from {file_path}")
 
     try:
         pc_sections = geopandas.read_file(file_path, engine="fiona")
     except Exception as e:
-        logger.error(f"Failed to load {file_path}: {e}")
+        _logger.error(f"Failed to load {file_path}: {e}")
         return
 
     if IMDFFeatureType.section not in intermediate_rep:

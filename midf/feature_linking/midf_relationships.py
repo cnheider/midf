@@ -26,7 +26,7 @@ __all__ = ["link_relationships"]
 
 import logging
 
-logger = logging.getLogger(__name__)
+_logger = logging.getLogger(__name__)
 
 
 def resolve_feature_reference(
@@ -98,10 +98,10 @@ def resolve_feature_reference(
         elif relationship.feature_type == IMDFFeatureType.detail:
             result = details.get(relationship.id)
         else:
-            logger.error(f"Unknown feature type {relationship.feature_type}")
+            _logger.error(f"Unknown feature type {relationship.feature_type}")
 
         if result is None:
-            logger.error(f"Could not resolve feature reference {relationship}")
+            _logger.error(f"Could not resolve feature reference {relationship}")
 
         return result
     return None
@@ -126,7 +126,7 @@ def link_relationships(
     details: Mapping[str, Collection[IMDFDetail]],
 ) -> Mapping[str, MIDFRelationship]:
     relationships = {}
-    logger.error(
+    _logger.error(
         f"Linking relationships from {len(imdf_dict[IMDFFeatureType.relationship])} relationships"
     )
 

@@ -24,7 +24,7 @@ from sync_module.model import (
 )
 from sync_module.shared import LanguageBundle
 
-logger = logging.getLogger(__name__)
+_logger = logging.getLogger(__name__)
 
 
 def to_mi_solution(

@@ -9,7 +9,7 @@ __all__ = ["load_imdf_relationships"]
 
 import logging
 
-logger = logging.getLogger(__name__)
+_logger = logging.getLogger(__name__)
 
 
 def load_imdf_relationships(
@@ -17,7 +17,7 @@ def load_imdf_relationships(
     out: Mapping[IMDFFeatureType, List[IMDFRelationship]],
 ) -> None:
     if IMDFFeatureType.relationship.value in dataframes:
-        logger.error(f"Loading {IMDFFeatureType.relationship} features")
+        _logger.error(f"Loading {IMDFFeatureType.relationship} features")
         for ith_row, relationship_row in dataframes[
             IMDFFeatureType.relationship.value
         ].iterrows():
@@ -36,6 +36,6 @@ def load_imdf_relationships(
                 )
                 out[IMDFFeatureType.relationship].append(relationship)
             except Exception as e:
-                logger.error(
+                _logger.error(
                     f"Error loading {IMDFFeatureType.relationship} features: {e}"
                 )

@@ -15,7 +15,7 @@ from sync_module.shared import LanguageBundle
 __all__ = ["convert_amenities"]
 
 
-logger = logging.getLogger(__name__)
+_logger = logging.getLogger(__name__)
 
 
 def convert_amenities(mi_solution: Solution, midf_solution: MIDFSolution) -> None:
@@ -49,7 +49,7 @@ def convert_amenities(mi_solution: Solution, midf_solution: MIDFSolution) -> Non
                 )
 
                 if ref_unit is None:
-                    logger.warning(f"Unit {unit.id} not found in the solution.")
+                    _logger.warning(f"Unit {unit.id} not found in the solution.")
                     continue
 
                 admin_id = clean_admin_id(amenity.id)
@@ -60,7 +60,7 @@ def convert_amenities(mi_solution: Solution, midf_solution: MIDFSolution) -> Non
                     )
                     is not None
                 ):
-                    logger.warning(f"Point of interest {admin_id} already exists.")
+                    _logger.warning(f"Point of interest {admin_id} already exists.")
                     continue
 
                 mi_solution.add_point_of_interest(

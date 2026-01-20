@@ -11,7 +11,7 @@ from midf.imdf_model import IMDFFixture
 
 __all__ = ["load_imdf_fixtures"]
 
-logger = logging.getLogger(__name__)
+_logger = logging.getLogger(__name__)
 
 
 def load_imdf_fixtures(
@@ -19,7 +19,7 @@ def load_imdf_fixtures(
     out: Mapping[IMDFFeatureType, List[IMDFFixture]],
 ) -> None:
     if IMDFFeatureType.fixture.value in dataframes:
-        logger.error(f"Loading {IMDFFeatureType.fixture} features")
+        _logger.error(f"Loading {IMDFFeatureType.fixture} features")
 
         for ith_row, fixture_row in dataframes[
             IMDFFeatureType.fixture.value
@@ -42,7 +42,7 @@ def load_imdf_fixtures(
                     ...
                     # fixture_id = str(fixture_id)
                 else:
-                    logger.error(
+                    _logger.error(
                         f"fixture_id is None, generating a new one"
                         # f"{fixture_row}"
                     )

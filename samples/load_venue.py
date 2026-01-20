@@ -7,15 +7,15 @@ from midf.loading import MANIFEST_KEY, load_imdf
 from sync_module.mi import SyncLevel, synchronize
 
 logging.basicConfig(level=logging.INFO)
-logger = logging.getLogger(__name__)
-logger.setLevel(logging.INFO)
+_logger = logging.getLogger(__name__)
+_logger.setLevel(logging.INFO)
 
 if __name__ == "__main__":
     data_base = Path(__file__).parent
 
     for f in data_base.iterdir():
         if f.is_file() and f.suffix == ".zip":
-            logger.error(f"Processing {f}")
+            _logger.error(f"Processing {f}")
 
             try:
                 imdf_dict = load_imdf(f)
@@ -48,4 +48,4 @@ if __name__ == "__main__":
             except Exception as e:
                 if True:
                     raise e
-                logger.error(f"Failed to process {f}: {e}")
+                _logger.error(f"Failed to process {f}: {e}")

@@ -9,7 +9,7 @@ __all__ = ["load_imdf_geofences"]
 
 import logging
 
-logger = logging.getLogger(__name__)
+_logger = logging.getLogger(__name__)
 
 
 def load_imdf_geofences(
@@ -17,7 +17,7 @@ def load_imdf_geofences(
     out: Mapping[IMDFFeatureType, List[IMDFGeofence]],
 ) -> None:
     if IMDFFeatureType.geofence.value in dataframes:
-        logger.error(f"Loading {IMDFFeatureType.geofence} features")
+        _logger.error(f"Loading {IMDFFeatureType.geofence} features")
         for ith_row, geofence_row in dataframes[
             IMDFFeatureType.geofence.value
         ].iterrows():

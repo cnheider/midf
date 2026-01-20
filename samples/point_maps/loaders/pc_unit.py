@@ -9,7 +9,7 @@ from midf.enums import IMDFFeatureType, IMDFUnitCategory
 from midf.imdf_model import IMDFUnit
 from .geojson_utilities import convert_display_point
 
-logger = logging.getLogger(__name__)
+_logger = logging.getLogger(__name__)
 
 __all__ = ["load_unit"]
 
@@ -17,12 +17,12 @@ __all__ = ["load_unit"]
 def load_unit(file_path: Path, intermediate_rep) -> None:
     """Load unit features"""
 
-    logger.info(f"Loading unit FeatureCollection: {file_path}")
+    _logger.info(f"Loading unit FeatureCollection: {file_path}")
 
     try:
         jgf = geopandas.read_file(file_path, engine="fiona")
     except Exception as e:
-        logger.error(f"Failed to load {file_path}: {e}")
+        _logger.error(f"Failed to load {file_path}: {e}")
         return
 
     if IMDFFeatureType.unit not in intermediate_rep:

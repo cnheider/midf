@@ -9,7 +9,7 @@ __all__ = ["load_imdf_addresses"]
 
 import logging
 
-logger = logging.getLogger(__name__)
+_logger = logging.getLogger(__name__)
 
 
 def load_imdf_addresses(
@@ -17,7 +17,7 @@ def load_imdf_addresses(
     out: Mapping[IMDFFeatureType, List[IMDFAddress]],
 ) -> None:
     if IMDFFeatureType.address.value in dataframes:
-        logger.error(f"Loading {IMDFFeatureType.address} features")
+        _logger.error(f"Loading {IMDFFeatureType.address} features")
         for ith_row, address_row in dataframes[
             IMDFFeatureType.address.value
         ].iterrows():

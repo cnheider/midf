@@ -8,7 +8,7 @@ from urllib.parse import urlparse
 import requests
 import shapely.geometry
 
-logger = logging.getLogger(__name__)
+_logger = logging.getLogger(__name__)
 
 
 def read_geojson_file_or_url(fp_or_url: Union[str, Path]):

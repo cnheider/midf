@@ -11,7 +11,7 @@ from model.enums import PointConsultingFeatureStem
 from warg import ensure_existence
 
 logging.basicConfig(level=logging.INFO)
-logger = logging.getLogger(__name__)
+_logger = logging.getLogger(__name__)
 
 
 class MultipleMatchException(Exception): ...
@@ -41,9 +41,9 @@ def drop_invalid_features(p: Path) -> Optional[dict[str, Any]]:
                 if g.is_empty:
                     fail = True
             except Exception as e:
-                logger.error(f"{p}:{e}")
+                _logger.error(f"{p}:{e}")
                 if gj:
-                    logger.error(f"{p}:{gj}")
+                    _logger.error(f"{p}:{gj}")
                 fail = True
 
             if fail:
@@ -154,7 +154,7 @@ def fix_venue_jsons(pc_venue, target_path):
                 raise NotImplementedError("This should never happen")
 
         else:
-            logger.info(f"{a} was skipped")
+            _logger.info(f"{a} was skipped")
 
 
 def fix_pc_venue_jsons():
@@ -178,15 +178,15 @@ def fix_pc_venue_jsons():
                 # "berlin_brandenburg_airport",
                 "zurich_airport"
             ):
-                logger.error(f"skipped {pc_venue.stem}")
+                _logger.error(f"skipped {pc_venue.stem}")
                 continue
 
-        logger.info(f"Processing {pc_venue}")
+        _logger.info(f"Processing {pc_venue}")
 
         try:
             fix_venue_jsons(pc_venue, target_path)
         except Exception as e:
-            logger.error(f"{pc_venue}: {e}")
+            _logger.error(f"{pc_venue}: {e}")
 
 
 if __name__ == "__main__":

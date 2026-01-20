@@ -8,7 +8,7 @@ from midf.model import MIDFOpening
 from sync_module.model import Door, LocationType
 from sync_module.shared import MIDoorType
 
-logger = logging.getLogger(__name__)
+_logger = logging.getLogger(__name__)
 
 __all__ = ["convert_openings"]
 
@@ -47,7 +47,7 @@ def convert_openings(level, mi_solution, venue_graph_key, floor_key) -> None:
                         location_type_key=location_type_key,
                     )
                 else:
-                    logger.error(f"Ignoring {opening}")
+                    _logger.error(f"Ignoring {opening}")
             else:
                 a = clean_admin_id(opening.id)
 

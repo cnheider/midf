@@ -3,7 +3,7 @@ from pathlib import Path
 
 import geopandas
 
-logger = logging.getLogger(__name__)
+_logger = logging.getLogger(__name__)
 
 __all__ = ["load_point"]
 

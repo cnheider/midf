@@ -9,7 +9,7 @@ import geopandas
 from midf.enums import IMDFFeatureType
 from midf.imdf_model import IMDFFeature
 
-logger = logging.getLogger(__name__)
+_logger = logging.getLogger(__name__)
 
 
 def prepare_feature_collection(feature_collection: Collection[IMDFFeature]) -> str:
@@ -22,8 +22,8 @@ def prepare_feature_collection(feature_collection: Collection[IMDFFeature]) -> s
     try:
         return df.to_json()
     except Exception as e:
-        logger.error(f"{feature_collection}: {e}")
-        logger.info("RETURNING empty FeatureCollection")
+        _logger.error(f"{feature_collection}: {e}")
+        _logger.info("RETURNING empty FeatureCollection")
         return '{"type": "FeatureCollection", "features": []}'
 
 

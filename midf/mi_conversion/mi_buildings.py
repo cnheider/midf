@@ -9,7 +9,7 @@ from midf.model import MIDFAddress, MIDFBuilding, MIDFFootprint, MIDFSolution, M
 from sync_module.model import Solution, Venue
 from sync_module.shared import LanguageBundle
 
-logger = logging.getLogger(__name__)
+_logger = logging.getLogger(__name__)
 
 __all__ = ["convert_buildings"]
 
@@ -44,7 +44,7 @@ def convert_buildings(
                 for p in fp.geometry.geoms:
                     building_footprint |= p
             else:
-                logger.error(f"Ignoring {fp}")
+                _logger.error(f"Ignoring {fp}")
 
         if building_footprint.is_empty:
             if building.display_point:
@@ -82,7 +82,7 @@ def convert_buildings(
         )
 
     if found_venue_key is None:
-        logger.error(f"Could not find venue for building {building.id}")
+        _logger.error(f"Could not find venue for building {building.id}")
         raise ValueError(f"Could not find a venue for buildings")
 
     return found_venue_key

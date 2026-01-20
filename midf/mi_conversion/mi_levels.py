@@ -16,7 +16,7 @@ from midf.model import MIDFLevel, MIDFSolution
 from sync_module.model import Building, Floor, Solution
 from sync_module.shared import LanguageBundle
 
-logger = logging.getLogger(__name__)
+_logger = logging.getLogger(__name__)
 
 __all__ = ["convert_levels"]
 
@@ -52,7 +52,7 @@ def convert_levels(
                     )
                     found_building = mi_solution.buildings.get(outdoor_building_key)
             else:
-                logger.error(f"Skipping {level}")
+                _logger.error(f"Skipping {level}")
                 continue
         else:
             a = make_mi_building_admin_id_midf(
@@ -76,7 +76,7 @@ def convert_levels(
             if True:  # TODO: DISABLE WHEN FINISHED TESTING
                 floor_index += 100
             else:
-                logger.error(f"Skipping {level}, already exists")
+                _logger.error(f"Skipping {level}, already exists")
                 continue
 
         floor_key = mi_solution.add_floor(

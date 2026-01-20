@@ -4,7 +4,7 @@ from typing import Mapping
 from midf.enums import IMDFOccupantCategory
 from sync_module.model import Solution
 
-logger = logging.getLogger(__name__)
+_logger = logging.getLogger(__name__)
 
 __all__ = ["convert_occupant_categories"]
 

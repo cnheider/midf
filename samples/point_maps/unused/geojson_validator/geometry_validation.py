@@ -5,7 +5,7 @@ from typing import List
 from . import checks_invalid, checks_problematic
 from .geometry_utils import extract_single_geometries, prepare_geometries_for_checks
 
-logger = logging.getLogger(__name__)
+_logger = logging.getLogger(__name__)
 
 ALL_ACCEPTED_GEOMETRY_TYPES = POI, MPOI, LS, MLS, POL, MPOL, GC = [
     "Point",
@@ -82,7 +82,7 @@ def check_criteria(
                 raise ValueError(
                     f"The selected criterium {criterium} is not a valid argument for {name}"
                 )
-        logger.info(f"Criteria '{name}': {selected_criteria}")
+        _logger.info(f"Criteria '{name}': {selected_criteria}")
 
 
 def apply_check(
@@ -110,13 +110,13 @@ def process_validation(geometries, criteria_invalid, criteria_problematic):
 
     for i, geometry in enumerate(geometries):
         if geometry is None:
-            logger.info("Null geometry found in GeoJSON Feature, skipping.")
+            _logger.info("Null geometry found in GeoJSON Feature, skipping.")
             skipped_validation.append(i)
             continue
         geometry_type = geometry.get("type", None)
         geometry_types.append(geometry_type)
         if geometry_type not in ALL_ACCEPTED_GEOMETRY_TYPES:
-            logger.info(
+            _logger.info(
                 f"Geometry of type {geometry_type} currently not supported, skipping."
             )
             skipped_validation.append(i)  # TODO: Improve skipped_validation result

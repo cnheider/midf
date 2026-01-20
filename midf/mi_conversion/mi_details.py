@@ -9,7 +9,7 @@ from midf.model import MIDFDetail, MIDFLevel
 from sync_module.model import LocationType, Solution
 from sync_module.shared import LanguageBundle
 
-logger = logging.getLogger(__name__)
+_logger = logging.getLogger(__name__)
 
 __all__ = ["convert_details"]
 
@@ -41,4 +41,4 @@ def convert_details(floor_key: str, level: MIDFLevel, mi_solution: Solution) -> 
                     location_type_key=location_type_key,
                 )
             else:
-                logger.error(f"Ignoring {detail}")
+                _logger.error(f"Ignoring {detail}")

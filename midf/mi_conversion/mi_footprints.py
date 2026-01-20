@@ -5,7 +5,7 @@ from typing import List, Mapping
 
 from midf.model import MIDFBuilding, MIDFFootprint, MIDFSolution
 
-logger = logging.getLogger(__name__)
+_logger = logging.getLogger(__name__)
 
 
 def convert_footprints(

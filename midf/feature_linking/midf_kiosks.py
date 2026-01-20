@@ -10,7 +10,7 @@ __all__ = ["link_kiosks"]
 
 import logging
 
-logger = logging.getLogger(__name__)
+_logger = logging.getLogger(__name__)
 
 
 def link_kiosks(
@@ -18,7 +18,7 @@ def link_kiosks(
     imdf_dict: Mapping[IMDFFeatureType, Collection[IMDFFeature]],
 ) -> Dict[str, List[MIDFKiosk]]:
     kiosks = defaultdict(list)
-    logger.error(f"Linking {len(imdf_dict[IMDFFeatureType.kiosk])} kiosks")
+    _logger.error(f"Linking {len(imdf_dict[IMDFFeatureType.kiosk])} kiosks")
     for kiosk in imdf_dict[IMDFFeatureType.kiosk]:
         kiosk: IMDFKiosk
         kiosks[kiosk.level_id].append(

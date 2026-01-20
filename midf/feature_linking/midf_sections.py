@@ -10,14 +10,14 @@ __all__ = ["link_sections"]
 
 import logging
 
-logger = logging.getLogger(__name__)
+_logger = logging.getLogger(__name__)
 
 
 def link_sections(
     imdf_dict: Mapping[IMDFFeatureType, Collection[IMDFFeature]],
 ) -> Dict[str, List[MIDFSection]]:
     sections = defaultdict(list)
-    logger.error(f"Linking {len(imdf_dict[IMDFFeatureType.section])} sections...")
+    _logger.error(f"Linking {len(imdf_dict[IMDFFeatureType.section])} sections...")
     for section in imdf_dict[IMDFFeatureType.section]:
         section: IMDFSection
         sections[section.level_id].append(

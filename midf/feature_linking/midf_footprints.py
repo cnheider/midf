@@ -9,14 +9,14 @@ __all__ = ["link_footprints"]
 
 import logging
 
-logger = logging.getLogger(__name__)
+_logger = logging.getLogger(__name__)
 
 
 def link_footprints(
     buildings, imdf_dict: Mapping[IMDFFeatureType, Collection[IMDFFeature]]
 ) -> Dict[str, MIDFFootprint]:
     footprints = {}
-    logger.error(
+    _logger.error(
         f"Linking footprints from {len(imdf_dict[IMDFFeatureType.footprint])} footprints"
     )
     for footprint in imdf_dict[IMDFFeatureType.footprint]:

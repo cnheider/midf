@@ -19,7 +19,7 @@ from sync_module.model import (
 )
 from sync_module.shared import MIOccupantType, InvalidPolygonError, LanguageBundle
 
-logger = logging.getLogger(__name__)
+_logger = logging.getLogger(__name__)
 
 __all__ = ["convert_units"]
 
@@ -76,7 +76,7 @@ def convert_units(
                         )
                         is not None
                     ):
-                        logger.error(f"Unit {unit.id} already exists. skipping.")
+                        _logger.error(f"Unit {unit.id} already exists. skipping.")
                         continue
 
                     try:
@@ -88,10 +88,10 @@ def convert_units(
                             location_type_key=location_type_key,
                         )
                     except InvalidPolygonError as e:
-                        logger.error(f"Invalid polygon: {e}")
+                        _logger.error(f"Invalid polygon: {e}")
                         continue
             else:
-                logger.error(f"Ignoring {unit}")
+                _logger.error(f"Ignoring {unit}")
                 continue
 
             if unit.anchors:
@@ -140,11 +140,11 @@ def convert_units(
 
                             l = occupant_category_mapping.get(occupant.category)
                             if l is None:
-                                logger.error(
+                                _logger.error(
                                     f"Occupant category {occupant.category} not found."
                                 )
                                 if False:  # FAIL HERE! continue to next occupant
-                                    logger.error(
+                                    _logger.error(
                                         f"Occupant category {occupant.category} not found."
                                     )
                                     continue
@@ -183,7 +183,7 @@ def convert_units(
                                 )
                                 is not None
                             ):
-                                logger.error(
+                                _logger.error(
                                     f"Occupant {occupant.id} already exists. skipping."
                                 )
                                 continue

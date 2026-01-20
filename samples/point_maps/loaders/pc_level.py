@@ -8,19 +8,19 @@ from midf.enums import IMDFFeatureType
 from midf.imdf_model import IMDFLevel
 from .geojson_utilities import convert_display_point
 
-logger = logging.getLogger(__name__)
+_logger = logging.getLogger(__name__)
 
 __all__ = ["load_level"]
 
 
 def load_level(file_path: Path, intermediate_rep) -> None:
     """Load level features"""
-    logger.info(f"Loading level FeatureCollection: {file_path}")
+    _logger.info(f"Loading level FeatureCollection: {file_path}")
 
     try:
         pc_levels = geopandas.read_file(file_path, engine="fiona")
     except Exception as e:
-        logger.error(f"Failed to load {file_path}: {e}")
+        _logger.error(f"Failed to load {file_path}: {e}")
         return
 
     if IMDFFeatureType.level not in intermediate_rep:
@@ -30,7 +30,7 @@ def load_level(file_path: Path, intermediate_rep) -> None:
         if "OUTDOOR" in v:
             outdoor = v["OUTDOOR"]
             if not isinstance(outdoor, bool):
-                logger.warning(f"{outdoor=}, casting to bool {not bool(outdoor)}")
+                _logger.warning(f"{outdoor=}, casting to bool {not bool(outdoor)}")
                 outdoor = not bool(outdoor)
 
         restriction = None

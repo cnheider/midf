@@ -1,7 +1,7 @@
 import logging
 from typing import Any, List, Union
 
-logger = logging.getLogger(__name__)
+_logger = logging.getLogger(__name__)
 
 
 class GeoJsonLint:

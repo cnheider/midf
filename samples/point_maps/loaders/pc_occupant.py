@@ -20,7 +20,7 @@ from midf.enums import (
 )
 from midf.imdf_model import IMDFAnchor, IMDFLevel, IMDFOccupant, IMDFUnit
 
-logger = logging.getLogger(__name__)
+_logger = logging.getLogger(__name__)
 
 __all__ = ["load_occupant"]
 
@@ -202,11 +202,11 @@ def load_occupant(file_path: Path, intermediate_rep, skip_media) -> Mapping[str,
                             image_url = image_id
                         else:
                             image_url = POINT_MAPS_IMAGE_PATH.format(image_id)
-                        logger.info(f"Loading image {image_url}")
+                        _logger.info(f"Loading image {image_url}")
                         try:
                             images.append(requests.get(image_url).content)
                         except Exception as e:
-                            logger.error(f"Failed to load image {image_url}: {e}")
+                            _logger.error(f"Failed to load image {image_url}: {e}")
 
             description = (
                 f"Description: {str(occupant_p['DESCRIPTION'])}"

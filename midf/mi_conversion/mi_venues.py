@@ -10,7 +10,7 @@ from midf.model import MIDFAddress, MIDFSolution, MIDFVenue
 from sync_module.model import PostalAddress, Solution
 from sync_module.shared import MIVenueType, LanguageBundle
 
-logger = logging.getLogger(__name__)
+_logger = logging.getLogger(__name__)
 
 __all__ = ["convert_venues"]
 
@@ -63,7 +63,7 @@ def convert_venues(
                 address_venue_mapping[address.id].append(venue_key)
 
     if venue is None:
-        logger.error("No venues found in the MIDF solution.")
+        _logger.error("No venues found in the MIDF solution.")
         venue_key = mi_solution.add_venue(
             admin_id="default-venue",
             translations={"en": LanguageBundle(name="Default Venue")},

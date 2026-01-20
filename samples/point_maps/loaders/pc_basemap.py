@@ -7,7 +7,7 @@ import shapely
 from midf.enums import IMDFFeatureType, IMDFLevelCategory
 from midf.imdf_model import IMDFFixture, IMDFLevel
 
-logger = logging.getLogger(__name__)
+_logger = logging.getLogger(__name__)
 
 __all__ = ["load_basemap"]
 

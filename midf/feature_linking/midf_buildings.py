@@ -7,7 +7,7 @@ from midf.model import MIDFBuilding
 
 __all__ = ["link_buildings"]
 
-logger = logging.getLogger(__name__)
+_logger = logging.getLogger(__name__)
 
 
 def link_buildings(
@@ -20,7 +20,7 @@ def link_buildings(
     """
     buildings = {}
 
-    logger.error(f"IMDF buildings: {imdf_dict[IMDFFeatureType.building]}")
+    _logger.error(f"IMDF buildings: {imdf_dict[IMDFFeatureType.building]}")
 
     for building in imdf_dict[IMDFFeatureType.building]:
         building: IMDFBuilding

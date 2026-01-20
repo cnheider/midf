@@ -9,19 +9,19 @@ from midf.enums import IMDFFeatureType
 from midf.imdf_model import IMDFFixture
 from .geojson_utilities import convert_display_point
 
-logger = logging.getLogger(__name__)
+_logger = logging.getLogger(__name__)
 
 __all__ = ["load_fixture"]
 
 
 def load_fixture(file_path: Path, intermediate_rep) -> None:
     """Load fixture features"""
-    logger.info(f"Loading fixture FeatureCollection from {file_path}")
+    _logger.info(f"Loading fixture FeatureCollection from {file_path}")
 
     try:
         jgf = geopandas.read_file(file_path, engine="fiona")
     except Exception as e:
-        logger.error(f"Failed to load fixture: {file_path} {e}")
+        _logger.error(f"Failed to load fixture: {file_path} {e}")
         return
 
     if IMDFFeatureType.fixture not in intermediate_rep:

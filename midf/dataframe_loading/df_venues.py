@@ -11,7 +11,7 @@ __all__ = ["load_imdf_venues"]
 
 import logging
 
-logger = logging.getLogger(__name__)
+_logger = logging.getLogger(__name__)
 
 
 def load_imdf_venues(
@@ -19,7 +19,7 @@ def load_imdf_venues(
     out: Mapping[IMDFFeatureType, List[IMDFVenue]],
 ) -> None:
     if IMDFFeatureType.venue.value in dataframes:
-        logger.error(f"Loading {IMDFFeatureType.venue} features")
+        _logger.error(f"Loading {IMDFFeatureType.venue} features")
         for ith_row, venue_row in dataframes[IMDFFeatureType.venue.value].iterrows():
             venue_dict = venue_row.to_dict()
 

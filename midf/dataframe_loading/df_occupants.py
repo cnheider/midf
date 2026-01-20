@@ -11,7 +11,7 @@ __all__ = ["load_imdf_occupants"]
 
 import logging
 
-logger = logging.getLogger(__name__)
+_logger = logging.getLogger(__name__)
 
 
 def load_imdf_occupants(
@@ -19,7 +19,7 @@ def load_imdf_occupants(
     out: Mapping[IMDFFeatureType, List[IMDFOccupant]],
 ) -> None:
     if IMDFFeatureType.occupant.value in dataframes:
-        logger.error(f"Loading {IMDFFeatureType.occupant} features")
+        _logger.error(f"Loading {IMDFFeatureType.occupant} features")
 
         for ith_row, occupant_row in dataframes[
             IMDFFeatureType.occupant.value

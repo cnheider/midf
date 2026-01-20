@@ -5,7 +5,7 @@ from typing import List, Optional
 
 from pydantic import BaseModel
 
-logger = logging.getLogger(__name__)
+_logger = logging.getLogger(__name__)
 
 IGNORE_THIS = """
   "clickable": true,

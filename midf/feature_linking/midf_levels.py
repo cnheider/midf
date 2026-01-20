@@ -17,7 +17,7 @@ __all__ = ["link_levels"]
 
 import logging
 
-logger = logging.getLogger(__name__)
+_logger = logging.getLogger(__name__)
 
 
 def link_levels(
@@ -38,7 +38,7 @@ def link_levels(
     units: Dict[str, MIDFUnit],
 ) -> Dict[str, MIDFLevel]:
     levels = {}
-    logger.error(f"Linking levels from {len(imdf_dict[IMDFFeatureType.level])} levels")
+    _logger.error(f"Linking levels from {len(imdf_dict[IMDFFeatureType.level])} levels")
 
     kiosks_copy = kiosks.copy()
     openings_copy = openings.copy()
@@ -57,7 +57,7 @@ def link_levels(
                 if b_id in buildings:
                     building_references.append(buildings[b_id])
                 else:
-                    logger.error(f"Building {b_id} not found for level {level.id}")
+                    _logger.error(f"Building {b_id} not found for level {level.id}")
 
         levels[level.id] = MIDFLevel(
             id=level.id,

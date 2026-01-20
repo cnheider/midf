@@ -9,7 +9,7 @@ __all__ = ["load_imdf_details"]
 
 import logging
 
-logger = logging.getLogger(__name__)
+_logger = logging.getLogger(__name__)
 
 
 def load_imdf_details(
@@ -17,7 +17,7 @@ def load_imdf_details(
     out: Mapping[IMDFFeatureType, List[IMDFDetail]],
 ) -> None:
     if IMDFFeatureType.detail.value in dataframes:
-        logger.error(f"Loading {IMDFFeatureType.detail} features")
+        _logger.error(f"Loading {IMDFFeatureType.detail} features")
         for ith_row, detail_row in dataframes[IMDFFeatureType.detail.value].iterrows():
             detail_dict = detail_row.to_dict()
 
