@@ -104,11 +104,16 @@ def convert_relationships(
                         )
                     )
 
+            if relationship.destination is None:
+                if True:
+                    continue
+
             destination_room = mi_solution.rooms.get(
                 key=Room.compute_key(
                     admin_id=clean_admin_id(relationship.destination.id)
                 )
             )
+
             if not destination_room:
                 _logger.error(
                     f"Destination room not found for relationship {relationship}"

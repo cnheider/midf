@@ -1,3 +1,6 @@
+import json
+
+import shapely
 from pandas import DataFrame
 from typing import List, Mapping
 
@@ -22,5 +25,14 @@ def load_imdf_geofences(
         ].iterrows():
             geofence_dict = geofence_row.to_dict()
 
-            geofence = IMDFGeofence(**geofence_dict)
+            display_point = geofence_dict.pop("display_point")
+            if display_point is not None:
+                a = json.dumps(display_point)
+
+                if isinstance(display_point, dict):
+                    display_point = shapely.from_geojson(a)
+                else:
+                    display_point = shapely.from_geojson(display_point)
+
+            geofence = IMDFGeofence(**geofence_dict, display_point=display_point)
             out[IMDFFeatureType.geofence].append(geofence)

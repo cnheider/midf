@@ -1,6 +1,8 @@
 import json
 import shapely
+from geojson import LineString
 from pandas import DataFrame
+from shapely.linear import line_merge
 from typing import List, Mapping
 
 from midf.enums import IMDFFeatureType
@@ -52,8 +54,20 @@ def load_imdf_openings(
                     ...
                 door = IMDFDoor(**door)
 
+            geometry = opening_dict.pop("geometry")
+            if True:
+                if not isinstance(geometry, LineString):
+                    geometry = line_merge(geometry)
+
+                if not isinstance(geometry, LineString):
+                    if True:
+                        continue
+                    else:
+                        raise Exception(f"Invalid geometry for opening {geometry}")
+
             opening = IMDFOpening(
                 **opening_dict,
+                geometry=geometry,
                 name=name,
                 alt_name=alt_name,
                 display_point=display_point,
