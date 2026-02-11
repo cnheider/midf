@@ -18,6 +18,15 @@ _logger = logging.getLogger(__name__)
 
 
 def convert_amenities(mi_solution: Solution, midf_solution: MIDFSolution) -> None:
+    """
+
+    :param mi_solution:
+    :type mi_solution:
+    :param midf_solution:
+    :type midf_solution:
+    :return:
+    :rtype:
+    """
     if midf_solution.amenities:
         for amenity in midf_solution.amenities:
             amenity: MIDFAmenity

@@ -13,6 +13,13 @@ _logger = logging.getLogger(__name__)
 
 
 def prepare_feature_collection(feature_collection: Collection[IMDFFeature]) -> str:
+    """
+
+    :param feature_collection:
+    :type feature_collection:
+    :return:
+    :rtype:
+    """
     out = []
     for feature in feature_collection:
         out.append(feature.to_imdf_spec_feature())
@@ -32,6 +39,17 @@ def package_imdf(
     manifest: Mapping[str, str],
     feature_collections: Mapping[IMDFFeatureType, Collection[IMDFFeature]],
 ) -> None:
+    """
+
+    :param target_imdf_file:
+    :type target_imdf_file:
+    :param manifest:
+    :type manifest:
+    :param feature_collections:
+    :type feature_collections:
+    :return:
+    :rtype:
+    """
     with ZipFile(target_imdf_file, "w") as zf:
         zf.writestr("manifest.json", json.dumps(manifest))
 

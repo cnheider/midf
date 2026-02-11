@@ -10,6 +10,13 @@ __all__ = ["convert_occupant_categories"]
 
 
 def convert_occupant_categories(mi_solution: Solution) -> Mapping[str, str]:
+    """
+
+    :param mi_solution:
+    :type mi_solution:
+    :return:
+    :rtype:
+    """
     occupant_category_mapping = {}
     for occupant_category in IMDFOccupantCategory:
         occupant_category_mapping[occupant_category] = (

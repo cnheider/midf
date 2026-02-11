@@ -18,6 +18,15 @@ def link_units(
     anchors: Dict[str, Any],
     imdf_dict: Mapping[IMDFFeatureType, Collection[IMDFFeature]],
 ) -> Dict[str, List[MIDFUnit]]:
+    """
+
+    :param anchors:
+    :type anchors:
+    :param imdf_dict:
+    :type imdf_dict:
+    :return:
+    :rtype:
+    """
     units = defaultdict(list)
     _logger.error(f"Linking units {len(imdf_dict[IMDFFeatureType.unit])}")
 

@@ -17,6 +17,13 @@ _logger = logging.getLogger(__name__)
 def link_occupants(
     imdf_dict: Mapping[IMDFFeatureType, Collection[IMDFFeature]],
 ) -> Dict[str, List[MIDFOccupant]]:
+    """
+
+    :param imdf_dict:
+    :type imdf_dict:
+    :return:
+    :rtype:
+    """
     occupants = defaultdict(list)
     _logger.error(f"Linking {len(imdf_dict[IMDFFeatureType.occupant])} occupants")
     for occupant in imdf_dict[IMDFFeatureType.occupant]:

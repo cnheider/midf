@@ -15,6 +15,11 @@ class IMDFAnchor(IMDFFeature):
     unit_id: str = ""
 
     def to_imdf_spec_feature(self) -> dict[str, Any]:
+        """
+
+        :return:
+        :rtype:
+        """
         out = self.model_dump()
 
         out["feature_type"] = IMDFFeatureType.anchor.value

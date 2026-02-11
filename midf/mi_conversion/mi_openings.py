@@ -13,6 +13,19 @@ __all__ = ["convert_openings"]
 
 
 def convert_openings(level, mi_solution, venue_graph_key, floor_key) -> None:
+    """
+
+    :param level:
+    :type level:
+    :param mi_solution:
+    :type mi_solution:
+    :param venue_graph_key:
+    :type venue_graph_key:
+    :param floor_key:
+    :type floor_key:
+    :return:
+    :rtype:
+    """
     if level.openings:
         for opening in level.openings:
             opening: MIDFOpening

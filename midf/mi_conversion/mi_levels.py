@@ -30,6 +30,25 @@ def convert_levels(
     venue_graph_key: str,
     venue_key: str,
 ) -> None:
+    """
+
+    :param anchor_location_type:
+    :type anchor_location_type:
+    :param found_venue_key:
+    :type found_venue_key:
+    :param mi_solution:
+    :type mi_solution:
+    :param midf_solution:
+    :type midf_solution:
+    :param occupant_category_mapping:
+    :type occupant_category_mapping:
+    :param venue_graph_key:
+    :type venue_graph_key:
+    :param venue_key:
+    :type venue_key:
+    :return:
+    :rtype:
+    """
     for level in midf_solution.levels:
         # level.address TODO: UNUSED ATM
         level: MIDFLevel

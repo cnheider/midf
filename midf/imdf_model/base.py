@@ -15,6 +15,11 @@ class IMDFFeature(BaseModel):
 
     @abstractmethod
     def to_imdf_spec_feature(self) -> dict[str, Any]:
+        """
+
+        :return:
+        :rtype:
+        """
         raise NotImplementedError
 
 

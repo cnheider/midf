@@ -18,6 +18,15 @@ def link_kiosks(
     anchor_id_mapping: Mapping[str, MIDFAnchor],
     imdf_dict: Mapping[IMDFFeatureType, Collection[IMDFFeature]],
 ) -> Dict[str, List[MIDFKiosk]]:
+    """
+
+    :param anchor_id_mapping:
+    :type anchor_id_mapping:
+    :param imdf_dict:
+    :type imdf_dict:
+    :return:
+    :rtype:
+    """
     kiosks = defaultdict(list)
     _logger.error(f"Linking {len(imdf_dict[IMDFFeatureType.kiosk])} kiosks")
     for kiosk in imdf_dict[IMDFFeatureType.kiosk]:

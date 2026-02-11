@@ -14,6 +14,17 @@ __all__ = ["convert_kiosks"]
 
 
 def convert_kiosks(floor_key: str, level: MIDFLevel, mi_solution: Solution) -> None:
+    """
+
+    :param floor_key:
+    :type floor_key:
+    :param level:
+    :type level:
+    :param mi_solution:
+    :type mi_solution:
+    :return:
+    :rtype:
+    """
     if level.kiosks:
         for kiosk in level.kiosks:
             kiosk: MIDFKiosk

@@ -17,6 +17,13 @@ _logger = logging.getLogger(__name__)
 def link_sections(
     imdf_dict: Mapping[IMDFFeatureType, Collection[IMDFFeature]],
 ) -> Dict[str, List[MIDFSection]]:
+    """
+
+    :param imdf_dict:
+    :type imdf_dict:
+    :return:
+    :rtype:
+    """
     sections = defaultdict(list)
     _logger.error(f"Linking {len(imdf_dict[IMDFFeatureType.section])} sections...")
     for section in imdf_dict[IMDFFeatureType.section]:

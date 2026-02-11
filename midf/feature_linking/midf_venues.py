@@ -17,6 +17,13 @@ _logger = logging.getLogger(__name__)
 def link_venues(
     imdf_dict: Mapping[IMDFFeatureType, Collection[IMDFFeature]],
 ) -> Dict[str, List[MIDFVenue]]:
+    """
+
+    :param imdf_dict:
+    :type imdf_dict:
+    :return:
+    :rtype:
+    """
     venue_mapping = defaultdict(list)
     _logger.error(f"Linking venues from {len(imdf_dict[IMDFFeatureType.venue])} venues")
     for venue in imdf_dict[IMDFFeatureType.venue]:

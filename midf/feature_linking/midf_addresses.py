@@ -14,6 +14,15 @@ def link_addresses(
     imdf_dict: Mapping[IMDFFeatureType, Collection[IMDFFeature]],
     venue_mapping: dict[str, List[MIDFVenue]],
 ) -> Dict[str, MIDFAddress]:
+    """
+
+    :param imdf_dict:
+    :type imdf_dict:
+    :param venue_mapping:
+    :type venue_mapping:
+    :return:
+    :rtype:
+    """
     addresses = {}
     _logger.error(f"Linking addresses: {len(imdf_dict[IMDFFeatureType.address])}")
 

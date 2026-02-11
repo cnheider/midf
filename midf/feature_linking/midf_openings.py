@@ -16,6 +16,13 @@ _logger = logging.getLogger(__name__)
 def link_openings(
     imdf_dict: Mapping[IMDFFeatureType, Collection[IMDFFeature]],
 ) -> Dict[str, List[MIDFOpening]]:
+    """
+
+    :param imdf_dict:
+    :type imdf_dict:
+    :return:
+    :rtype:
+    """
     openings = defaultdict(list)
     _logger.error(
         f"Linking openings from {len(imdf_dict[IMDFFeatureType.opening])} openings"

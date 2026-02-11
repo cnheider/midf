@@ -14,6 +14,13 @@ _logger = logging.getLogger(__name__)
 def link_geofences(
     imdf_dict: Mapping[IMDFFeatureType, Collection[IMDFFeature]],
 ) -> Dict[str, MIDFGeofence]:
+    """
+
+    :param imdf_dict:
+    :type imdf_dict:
+    :return:
+    :rtype:
+    """
     geofences = {}
     _logger.error(f"Linking {len(imdf_dict[IMDFFeatureType.geofence])} geofences")
     for geofence in imdf_dict[IMDFFeatureType.geofence]:

@@ -1,6 +1,6 @@
 import logging
 import shapely
-from typing import List, Mapping
+from typing import List, Mapping, Optional, Tuple
 
 from jord.shapely_utilities import is_multi
 from midf.constants import IMDF_VENUE_CATEGORY_TO_MI_VENUE_TYPE
@@ -18,7 +18,18 @@ def convert_venues(
     address_venue_mapping: Mapping[str, List[MIDFAddress]],
     mi_solution: Solution,
     midf_solution: MIDFSolution,
-) -> (MIDFVenue, str):
+) -> Tuple[Optional[MIDFVenue], str]:
+    """
+
+    :param address_venue_mapping:
+    :type address_venue_mapping:
+    :param mi_solution:
+    :type mi_solution:
+    :param midf_solution:
+    :type midf_solution:
+    :return:
+    :rtype:
+    """
     venue_key = None
     venue = None
 

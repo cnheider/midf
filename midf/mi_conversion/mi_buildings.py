@@ -21,6 +21,23 @@ def convert_buildings(
     venue: Optional[MIDFVenue],
     venue_key: str,
 ) -> str:
+    """
+
+    :param address_venue_mapping:
+    :type address_venue_mapping:
+    :param building_footprint_mapping:
+    :type building_footprint_mapping:
+    :param mi_solution:
+    :type mi_solution:
+    :param midf_solution:
+    :type midf_solution:
+    :param venue:
+    :type venue:
+    :param venue_key:
+    :type venue_key:
+    :return:
+    :rtype:
+    """
     if not midf_solution.buildings:
         return venue_key
 

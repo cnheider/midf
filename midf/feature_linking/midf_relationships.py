@@ -2,25 +2,27 @@ from typing import Collection, Mapping, Optional
 
 from midf.enums import IMDFFeatureType
 from midf.imdf_model import (
-    IMDFAddress,
-    IMDFAmenity,
-    IMDFAnchor,
-    IMDFBuilding,
-    IMDFDetail,
     IMDFFeature,
-    IMDFFixture,
-    IMDFFootprint,
-    IMDFGeofence,
-    IMDFKiosk,
-    IMDFLevel,
-    IMDFOccupant,
-    IMDFOpening,
     IMDFRelationship,
-    IMDFSection,
-    IMDFUnit,
 )
 from midf.midf_typing import MIDFFeature
-from midf.model import MIDFRelationship
+from midf.model import (
+    MIDFAddress,
+    MIDFAmenity,
+    MIDFAnchor,
+    MIDFBuilding,
+    MIDFDetail,
+    MIDFFixture,
+    MIDFFootprint,
+    MIDFGeofence,
+    MIDFKiosk,
+    MIDFLevel,
+    MIDFOccupant,
+    MIDFOpening,
+    MIDFRelationship,
+    MIDFSection,
+    MIDFUnit,
+)
 
 __all__ = ["link_relationships"]
 
@@ -32,20 +34,20 @@ _logger = logging.getLogger(__name__)
 def resolve_feature_reference(
     relationship,  #:Dict[str, Any],
     *,
-    levels: Mapping[str, IMDFLevel],
-    geofences: Mapping[str, IMDFGeofence],
-    amenities: Mapping[str, IMDFAmenity],
-    buildings: Mapping[str, IMDFBuilding],
-    footprints: Mapping[str, IMDFFootprint],
-    addresses: Mapping[str, IMDFAddress],
-    kiosks: Mapping[str, IMDFKiosk],
-    openings: Mapping[str, IMDFOpening],
-    sections: Mapping[str, IMDFSection],
-    units: Mapping[str, IMDFUnit],
-    anchors: Mapping[str, IMDFAnchor],
-    occupants: Mapping[str, IMDFOccupant],
-    fixtures: Mapping[str, IMDFFixture],
-    details: Mapping[str, IMDFDetail],
+    levels: Mapping[str, MIDFLevel],
+    geofences: Mapping[str, MIDFGeofence],
+    amenities: Mapping[str, MIDFAmenity],
+    buildings: Mapping[str, MIDFBuilding],
+    footprints: Mapping[str, MIDFFootprint],
+    addresses: Mapping[str, MIDFAddress],
+    kiosks: Mapping[str, MIDFKiosk],
+    openings: Mapping[str, MIDFOpening],
+    sections: Mapping[str, MIDFSection],
+    units: Mapping[str, MIDFUnit],
+    anchors: Mapping[str, MIDFAnchor],
+    occupants: Mapping[str, MIDFOccupant],
+    fixtures: Mapping[str, MIDFFixture],
+    details: Mapping[str, MIDFDetail],
 ) -> Optional[MIDFFeature]:
     """
     If the relationship is not None, return the feature that the relationship points to.
@@ -110,20 +112,20 @@ def resolve_feature_reference(
 def link_relationships(
     imdf_dict: Mapping[IMDFFeatureType, Collection[IMDFFeature]],
     *,
-    levels: Mapping[str, IMDFLevel],
-    geofences: Mapping[str, IMDFGeofence],
-    amenities: Mapping[str, IMDFAmenity],
-    buildings: Mapping[str, IMDFBuilding],
-    footprints: Mapping[str, IMDFFootprint],
-    addresses: Mapping[str, IMDFAddress],
-    kiosks: Mapping[str, Collection[IMDFKiosk]],
-    openings: Mapping[str, Collection[IMDFOpening]],
-    sections: Mapping[str, Collection[IMDFSection]],
-    units: Mapping[str, Collection[IMDFUnit]],
-    anchors: Mapping[str, Collection[IMDFAnchor]],
-    occupants: Mapping[str, Collection[IMDFOccupant]],
-    fixtures: Mapping[str, Collection[IMDFFixture]],
-    details: Mapping[str, Collection[IMDFDetail]],
+    levels: Mapping[str, MIDFLevel],
+    geofences: Mapping[str, MIDFGeofence],
+    amenities: Mapping[str, MIDFAmenity],
+    buildings: Mapping[str, MIDFBuilding],
+    footprints: Mapping[str, MIDFFootprint],
+    addresses: Mapping[str, MIDFAddress],
+    kiosks: Mapping[str, Collection[MIDFKiosk]],
+    openings: Mapping[str, Collection[MIDFOpening]],
+    sections: Mapping[str, Collection[MIDFSection]],
+    units: Mapping[str, Collection[MIDFUnit]],
+    anchors: Mapping[str, Collection[MIDFAnchor]],
+    occupants: Mapping[str, Collection[MIDFOccupant]],
+    fixtures: Mapping[str, Collection[MIDFFixture]],
+    details: Mapping[str, Collection[MIDFDetail]],
 ) -> Mapping[str, MIDFRelationship]:
     relationships = {}
     _logger.error(

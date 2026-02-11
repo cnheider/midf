@@ -40,6 +40,13 @@ def link_imdf(
         Union[str, IMDFFeatureType], Collection[Union[IMDFManifest, IMDFFeature]]
     ],
 ) -> MIDFSolution:
+    """
+
+    :param imdf_dict:
+    :type imdf_dict:
+    :return:
+    :rtype:
+    """
     imdf_manifest: IMDFManifest = next(iter(imdf_dict[MANIFEST_KEY]))
 
     solution = MIDFSolution(

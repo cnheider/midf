@@ -30,6 +30,15 @@ _logger = logging.getLogger(__name__)
 def to_mi_solution(
     midf_solution: MIDFSolution, solution_name: str = "ChenIMDFImport"
 ) -> Solution:
+    """
+
+    :param midf_solution:
+    :type midf_solution:
+    :param solution_name:
+    :type solution_name:
+    :return:
+    :rtype:
+    """
     if midf_solution.manifest.generated_by:
         solution_name = midf_solution.manifest.generated_by
 

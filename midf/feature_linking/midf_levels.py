@@ -1,4 +1,4 @@
-from typing import Collection, Dict, Mapping
+from typing import Collection, Dict, List, Mapping
 
 from midf.enums import IMDFFeatureType
 from midf.imdf_model import IMDFFeature, IMDFLevel
@@ -30,13 +30,46 @@ def link_levels(
     found_section_levels: Collection[str],
     found_unit_levels: Collection[str],
     imdf_dict: Mapping[IMDFFeatureType, Collection[IMDFFeature]],
-    details: Dict[str, MIDFDetail],
-    fixtures: Dict[str, MIDFFixture],
-    kiosks: Dict[str, MIDFKiosk],
-    openings: Dict[str, MIDFOpening],
-    sections: Dict[str, MIDFSection],
-    units: Dict[str, MIDFUnit],
+    details: Dict[str, List[MIDFDetail]],
+    fixtures: Dict[str, List[MIDFFixture]],
+    kiosks: Dict[str, List[MIDFKiosk]],
+    openings: Dict[str, List[MIDFOpening]],
+    sections: Dict[str, List[MIDFSection]],
+    units: Dict[str, List[MIDFUnit]],
 ) -> Dict[str, MIDFLevel]:
+    """
+
+    :param buildings:
+    :type buildings:
+    :param found_detail_levels:
+    :type found_detail_levels:
+    :param found_fixture_levels:
+    :type found_fixture_levels:
+    :param found_kiosk_levels:
+    :type found_kiosk_levels:
+    :param found_opening_levels:
+    :type found_opening_levels:
+    :param found_section_levels:
+    :type found_section_levels:
+    :param found_unit_levels:
+    :type found_unit_levels:
+    :param imdf_dict:
+    :type imdf_dict:
+    :param details:
+    :type details:
+    :param fixtures:
+    :type fixtures:
+    :param kiosks:
+    :type kiosks:
+    :param openings:
+    :type openings:
+    :param sections:
+    :type sections:
+    :param units:
+    :type units:
+    :return:
+    :rtype:
+    """
     levels = {}
     _logger.error(f"Linking levels from {len(imdf_dict[IMDFFeatureType.level])} levels")
 

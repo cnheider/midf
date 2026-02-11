@@ -17,6 +17,17 @@ __all__ = ["convert_relationships"]
 def convert_relationships(
     mi_solution: Solution, midf_solution: MIDFSolution, venue_graph_key: str
 ) -> None:
+    """
+
+    :param mi_solution:
+    :type mi_solution:
+    :param midf_solution:
+    :type midf_solution:
+    :param venue_graph_key:
+    :type venue_graph_key:
+    :return:
+    :rtype:
+    """
     if midf_solution.relationships:
         id_counter = iter(count())
         for relationship in midf_solution.relationships:

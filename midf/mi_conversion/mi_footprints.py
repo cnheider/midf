@@ -12,6 +12,15 @@ def convert_footprints(
     building_footprint_mapping: Mapping[str, List[MIDFFootprint]],
     midf_solution: MIDFSolution,
 ) -> None:
+    """
+
+    :param building_footprint_mapping:
+    :type building_footprint_mapping:
+    :param midf_solution:
+    :type midf_solution:
+    :return:
+    :rtype:
+    """
     for footprint in midf_solution.footprints:
         footprint: MIDFFootprint
         for building in footprint.buildings:

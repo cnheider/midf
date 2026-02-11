@@ -39,6 +39,13 @@ MANIFEST_KEY = "manifest"
 def load_imdf(
     imdf_file_path: Path,
 ) -> dict[str, Union[IMDFManifest, Collection[IMDFFeature]]]:
+    """
+
+    :param imdf_file_path:
+    :type imdf_file_path:
+    :return:
+    :rtype:
+    """
     from zipfile import ZipFile
     import geopandas
 

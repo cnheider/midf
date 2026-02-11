@@ -30,6 +30,21 @@ def convert_units(
     mi_solution: Solution,
     occupant_category_mapping: Mapping[str, str],
 ) -> None:
+    """
+
+    :param anchor_location_type:
+    :type anchor_location_type:
+    :param floor_key:
+    :type floor_key:
+    :param level:
+    :type level:
+    :param mi_solution:
+    :type mi_solution:
+    :param occupant_category_mapping:
+    :type occupant_category_mapping:
+    :return:
+    :rtype:
+    """
     if level.units:
         for unit in level.units:
             unit: MIDFUnit

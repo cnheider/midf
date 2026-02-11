@@ -16,6 +16,17 @@ __all__ = ["convert_geofences"]
 def convert_geofences(
     found_venue_key: str, mi_solution: Solution, midf_solution: MIDFSolution
 ) -> None:
+    """
+
+    :param found_venue_key:
+    :type found_venue_key:
+    :param mi_solution:
+    :type mi_solution:
+    :param midf_solution:
+    :type midf_solution:
+    :return:
+    :rtype:
+    """
     if midf_solution.geofences:
         for geofence in midf_solution.geofences:
             geofence: MIDFGeofence

@@ -17,6 +17,13 @@ _logger = logging.getLogger(__name__)
 def link_details(
     imdf_dict: Mapping[IMDFFeatureType, Collection[IMDFFeature]],
 ) -> Dict[str, List[MIDFDetail]]:
+    """
+
+    :param imdf_dict:
+    :type imdf_dict:
+    :return:
+    :rtype:
+    """
     details = defaultdict(list)
     _logger.error(f"Linking details {len(imdf_dict[IMDFFeatureType.detail])}")
     for detail in imdf_dict[IMDFFeatureType.detail]:

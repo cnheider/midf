@@ -15,6 +15,15 @@ _logger = logging.getLogger(__name__)
 def link_footprints(
     buildings, imdf_dict: Mapping[IMDFFeatureType, Collection[IMDFFeature]]
 ) -> Dict[str, MIDFFootprint]:
+    """
+
+    :param buildings:
+    :type buildings:
+    :param imdf_dict:
+    :type imdf_dict:
+    :return:
+    :rtype:
+    """
     footprints = {}
     _logger.error(
         f"Linking footprints from {len(imdf_dict[IMDFFeatureType.footprint])} footprints"

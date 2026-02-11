@@ -22,6 +22,11 @@ class IMDFBuilding(IMDFFeature):
     address_id: Optional[str] = None
 
     def to_imdf_spec_feature(self) -> dict[str, Any]:
+        """
+
+        :return:
+        :rtype:
+        """
         out = self.model_dump()
 
         out["feature_type"] = IMDFFeatureType.building.value
