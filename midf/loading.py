@@ -1,9 +1,8 @@
-from collections import defaultdict
-from pathlib import Path
-
 import json
 import logging
 import tempfile
+from collections import defaultdict
+from pathlib import Path
 from typing import Collection, List, Union
 
 from midf.imdf_model import (

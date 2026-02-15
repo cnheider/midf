@@ -1,5 +1,6 @@
-import geopandas
 import logging
+
+import geopandas
 
 from sync_module.mi import get_remote_solution, synchronize
 

@@ -1,6 +1,7 @@
 from abc import abstractmethod
-from pydantic import BaseModel, ConfigDict
 from typing import Any
+
+from pydantic import BaseModel, ConfigDict
 
 __all__ = ["IMDFFeature", "IMDFFeatureReference"]
 

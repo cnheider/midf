@@ -1,6 +1,7 @@
 import json
-from pandas import DataFrame
 from typing import List, Mapping
+
+from pandas import DataFrame
 
 from midf.enums import IMDFFeatureType
 from midf.imdf_model import IMDFOccupant

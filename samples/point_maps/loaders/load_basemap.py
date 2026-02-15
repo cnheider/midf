@@ -1,7 +1,7 @@
+import logging
 from pathlib import Path
 
 import geopandas
-import logging
 import shapely
 
 # from jord.qlive_utilities import AutoQliveClient

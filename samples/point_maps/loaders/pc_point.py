@@ -1,7 +1,7 @@
+import logging
 from pathlib import Path
 
 import geopandas
-import logging
 
 _logger = logging.getLogger(__name__)
 

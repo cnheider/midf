@@ -1,7 +1,8 @@
 import copy
 import logging
-import shapely.geometry
 from typing import List
+
+import shapely.geometry
 
 from . import fixes
 

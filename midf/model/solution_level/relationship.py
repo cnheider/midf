@@ -1,6 +1,7 @@
-import shapely
 from dataclasses import dataclass
 from typing import List, Optional
+
+import shapely
 
 from midf.enums import IMDFRelationshipCategory
 from midf.imdf_model.opening import IMDFDirection

@@ -1,9 +1,10 @@
 import json
+from typing import List, Mapping
+
 import shapely
 from geojson import LineString
 from pandas import DataFrame
 from shapely.linear import line_merge
-from typing import List, Mapping
 
 from midf.enums import IMDFFeatureType
 from midf.imdf_model import IMDFOpening

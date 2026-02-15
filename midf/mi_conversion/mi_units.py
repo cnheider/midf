@@ -1,6 +1,7 @@
 import logging
-import shapely
 from typing import Mapping
+
+import shapely
 
 from jord.shapely_utilities import clean_shape
 from midf.constants import ANCHOR_NAME

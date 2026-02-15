@@ -1,6 +1,5 @@
-from collections import defaultdict
-
 import logging
+from collections import defaultdict
 from typing import Collection, Dict, List, Mapping
 
 from midf.enums import IMDFFeatureType

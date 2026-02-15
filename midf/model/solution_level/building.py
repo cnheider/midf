@@ -1,6 +1,7 @@
-import shapely
 from dataclasses import dataclass
 from typing import Optional
+
+import shapely
 
 from midf.midf_typing import Labels, MIDFFeature
 from .address import MIDFAddress

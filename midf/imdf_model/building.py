@@ -1,6 +1,7 @@
 import json
-import shapely
 from typing import Any, Mapping, Optional, Union
+
+import shapely
 
 from midf.imdf_model.base import IMDFFeature
 

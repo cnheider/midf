@@ -1,6 +1,7 @@
 import logging
-import shapely
 from typing import List, Mapping, Optional, Tuple
+
+import shapely
 
 from jord.shapely_utilities import is_multi
 from midf.constants import IMDF_VENUE_CATEGORY_TO_MI_VENUE_TYPE

@@ -1,6 +1,5 @@
-from collections import Counter
-
 import logging
+from collections import Counter
 from typing import List
 
 from . import checks_invalid, checks_problematic

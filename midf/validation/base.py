@@ -1,5 +1,6 @@
-import shapely
 from abc import ABC, abstractmethod
+
+import shapely
 
 from midf.imdf_model import (
     IMDFAddress,

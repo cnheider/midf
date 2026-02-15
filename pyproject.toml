@@ -13,7 +13,7 @@ shapely = '>=2.0.1'
 apppath = ">=1.0.0"
 warg = ">=1.3.4"
 numpy = ">=1.26.2"
-jord = { version = ">=0.10.0", extras = ['shapely','networkx'] }
+jord = { version = ">=0.10.5", extras = ['shapely', 'networkx'] }
 pandas = ">=1.1.1"
 fiona = ">=1.1.0"
 osmnx = ">=2.0.5"
