@@ -310,7 +310,7 @@ cython_debug/
 
 .run/
 
-mi_companion_bundle
+mi_plugin_bundle
 oda_installers
 .DS_STORE
 app.yaml
