@@ -19,9 +19,9 @@ from midf.mi_utilities import make_mi_building_admin_id_midf
 from midf.model import MIDFSolution
 from sync_module.model import (
     Building,
-    FALLBACK_OSM_GRAPH,
     Solution,
 )
+from sync_module.constants import FALLBACK_OSM_GRAPH
 from sync_module.shared import LanguageBundle
 
 _logger = logging.getLogger(__name__)

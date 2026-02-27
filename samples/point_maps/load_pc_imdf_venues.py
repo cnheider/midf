@@ -108,7 +108,7 @@ def upload_to_mi():
                     mi_solution, sync_level=SyncLevel.venue, include_occupants=True
                 )
             else:
-                from sync_module.tools import to_json
+                from sync_module.tools.serialisation import to_json
 
                 with open(data_base / "go.json", "w") as f:
                     f.write(to_json(mi_solution))
